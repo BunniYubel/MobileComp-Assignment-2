@@ -11,3 +11,10 @@ Player movement:
 Boss movement:
 1. Boss may stay still or move left to right
 
+Goal of the game:
+1. Time attack?
+2. Beat the boss (gain points per boss)
+
+Internet functionality:
+1. Users log in using google
+2. Upload their scores to the database
