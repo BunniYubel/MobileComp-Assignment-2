@@ -13,8 +13,14 @@ Boss movement:
 
 Goal of the game:
 1. Time attack?
-2. Beat the boss (gain points per boss)
+2. Beat the boss (gain points per boss)?
 
 Internet functionality:
 1. Users log in using google
 2. Upload their scores to the database
+
+Basic features:
+1. Pausing the game - Menu button is on the top right
+2. Tutorial
+3. Option to turn off music
+4. 
