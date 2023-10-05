@@ -23,4 +23,6 @@ Basic features:
 1. Pausing the game - Menu button is on the top right
 2. Tutorial
 3. Option to turn off music
-4. 
+
+UPDATES:
+5/10: Made the scrolling background, installed the DanmakU engine for bullet hell patterns
