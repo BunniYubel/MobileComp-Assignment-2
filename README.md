@@ -1,5 +1,6 @@
 # MobileComp-Assignment-2
 App for Assignment 2, Year 1 Sem 2 Mobile Computing
+EDIT: 6/10 Started a new unity project from scratch after issues with the old one, don't download this one, I'll update later
 Unity project download: https://drive.google.com/drive/folders/1HxfupBK4EzxnrP3k2TzveYzm5lLBTZyE?usp=sharing
 
 Idea: Bullet hell game (Think touhou) for mobile (android/ios, probably android) using the gyroscope as the movement input (primary feature)
