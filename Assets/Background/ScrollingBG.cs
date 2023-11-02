@@ -5,8 +5,7 @@ using UnityEngine;
 public class ScrollingBG : MonoBehaviour
 {
     public float speed;
-    [SerializeField]
-    private Renderer bgRenderer;
+    [SerializeField] private Renderer bgRenderer;
 
     // Update is called once per frame
     void Update()
