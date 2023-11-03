@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class pause : MonoBehaviour
 {
-    public GameObject Panel;
+    public GameObject Background;
 
     // Update is called once per frame
     void Update()
@@ -14,13 +14,13 @@ public class pause : MonoBehaviour
 
     public void Pause()
     {
-        Panel.SetActive(true);
+        Background.SetActive(true);
         Time.timeScale = 0;
     }
 
     public void Continue()
     {
-        Panel.SetActive(false);
+        Background.SetActive(false);
         Time.timeScale = 1;
     }
 }
