@@ -6,7 +6,9 @@ using TMPro;
 public class NewBulletScript : MonoBehaviour
 {
     public float speed;
+    public float gianPoint;
     private Rigidbody2D rb;
+    //public PlayerScoreCounter counter;
 
     // Reference to the TextMeshProUGUI Text component.
     public TextMeshProUGUI scoreText;
@@ -31,16 +33,18 @@ public class NewBulletScript : MonoBehaviour
 
             // Deactivate the bullet when it hits an enemy.
             gameObject.SetActive(false);
-
-            int currentScore = PlayerPrefs.GetInt("Score", 0); // Get the current score (default to 0).
-            currentScore++; // Increment the score.
-            PlayerPrefs.SetInt("Score", currentScore); // Save the updated score.
+            //counter.HitTarget(gianPoint);
+            GameObject.Find("Player").GetComponent<PlayerScoreCounter>().HitTarget(gianPoint);
+            
+            //int currentScore = PlayerPrefs.GetInt("Score", 0); // Get the current score (default to 0).
+            //currentScore++; // Increment the score.
+            //PlayerPrefs.SetInt("Score", currentScore); // Save the updated score.
 
             // Update the display (if you have a TextMeshPro Text element).
-            if (scoreText != null)
-            {
-                scoreText.text = "Score: " + currentScore;
-            }
+            //if (scoreText != null)
+            //{
+            //    scoreText.text = "Score: " + currentScore;
+            //}
         }
     }
 }

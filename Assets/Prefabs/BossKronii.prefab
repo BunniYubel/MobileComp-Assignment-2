@@ -265,4 +265,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPoolManager: {fileID: 3193869987287546939}
-  bulletSpeed: 10
+  bulletSpeed: 15
