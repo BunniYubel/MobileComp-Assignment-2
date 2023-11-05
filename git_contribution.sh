@@ -1,11 +1,17 @@
 #!/bin/bash
 
+git log --pretty='%aN' | sort | uniq -c | sort -rn | while read line ; do
+  echo "$line commits";
+  AUTHOR=$(echo $line | awk '{print $2}');
+  git log --author="$AUTHOR" --pretty=tformat: --numstat |
+  awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "%s total lines: %s\n", "$AUTHOR", loc }';
+done
 
-# Show number of commits, author name
-git shortlog -s -n
+# # Show number of commits, author name
+# git shortlog -s -n
 
-# Show number of lines, author name
-git ls-files | while read f; do git blame -w -M -C -C --line-porcelain "$f" | grep -I '^author '; done | sort -f | uniq -ic | sort -n --reverse
+# # Show number of lines, author name
+# git ls-files | while read f; do git blame -w -M -C -C --line-porcelain "$f" | grep -I '^author '; done | sort -f | uniq -ic | sort -n --reverse
 
 # # Show commit history detail
 # git log --format="author: %ae" --numstat
