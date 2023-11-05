@@ -1,53 +1,34 @@
-using UnityEngine.SceneManagement;
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using System.Security.Cryptography;
 
-public class ASceneTrans : MonoBehaviour
+using UnityEngine;
+
+public class GyroPlayerMovement : MonoBehaviour
 {
-    //公开一个滑动条
-    public Slider LoadingSlider;
-    //公开载入文本（代码放置载入文本身上）
-    public Text LoadText;
-    //公开字符串用于填写第三个场景的名称
-    public string SceneName;
-    private float TargetVaule;
-    private AsyncOperation async = null;
-
+    Rigidbody2D playerRB;
+    float dirX;
+    float dirY;
+    float dirZ;
+    float moveSpeed = 25f;
+    // Start is called before the first frame update
     void Start()
     {
-        LoadText = GetComponent<Text>();
-        LoadingSlider = FindObjectOfType<Slider>();
-        StartCoroutine(AsyncLoading());
+        playerRB = GetComponent<Rigidbody2D>();
     }
 
-    IEnumerator AsyncLoading()
+
+    // Update is called once per frame
+    void Update()
     {
-        //异步加载场景
-        async = SceneManager.LoadSceneAsync(SceneName);
-        //阻止当加载完成自动切换
-        async.allowSceneActivation = false;
-        while (!async.isDone)
-        {
-            if (async.progress < 0.9f)
-            {
-                TargetVaule = async.progress;
-            }
-            else
-            {
-                TargetVaule = 1.0f;
-            }
-            LoadingSlider.value = TargetVaule;
+        dirX = Input.acceleration.x * moveSpeed;
+        dirY = Input.acceleration.y * moveSpeed;
+        dirZ = Input.acceleration.z * moveSpeed;
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -8f, 8f), Mathf.Clamp(transform.position.y, -18f, 18f), 0f);
+    }
 
-            LoadText.text = (int)(LoadingSlider.value * 100) + "%";
-
-            if (TargetVaule >= 0.9)
-            {
-                async.allowSceneActivation = true;
-            }
-
-            yield return null;
-
-        }
+    void FixedUpdate()
+    {
+        playerRB.velocity = new Vector3(dirX, dirY, dirZ);
     }
 }
