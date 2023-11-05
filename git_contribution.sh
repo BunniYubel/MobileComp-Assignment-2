@@ -1,5 +1,4 @@
 #!/bin/bash
-#
 
 
 # Show number of commits, author name
