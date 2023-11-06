@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
+//using System.Security.Cryptography;
 
 using UnityEngine;
 
@@ -11,6 +11,10 @@ public class GyroPlayerMovement : MonoBehaviour
     float dirY;
     float dirZ;
     float moveSpeed = 25f;
+
+    float shakingForce;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +29,9 @@ public class GyroPlayerMovement : MonoBehaviour
         dirY = Input.acceleration.y * moveSpeed;
         dirZ = Input.acceleration.z * moveSpeed;
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -8f, 8f), Mathf.Clamp(transform.position.y, -18f, 18f), 0f);
+
+        //shakingForce = Input.acc
+        
     }
 
     void FixedUpdate()

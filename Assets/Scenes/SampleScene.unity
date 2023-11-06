@@ -1058,6 +1058,7 @@ GameObject:
   - component: {fileID: 245942927}
   - component: {fileID: 245942926}
   - component: {fileID: 245942925}
+  - component: {fileID: 245942928}
   m_Layer: 11
   m_Name: Pause button
   m_TagString: Untagged
@@ -1179,6 +1180,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 245942923}
   m_CullTransparentMesh: 1
+--- !u!114 &245942928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245942923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d756642ce88c9d47859b535fb1c1a82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 245942925}
 --- !u!1 &260447005
 GameObject:
   m_ObjectHideFlags: 0
@@ -2237,7 +2251,7 @@ Transform:
   m_GameObject: {fileID: 483099616}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 16.42, z: 2.72}
+  m_LocalPosition: {x: 0, y: 15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4910,7 +4924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kroniiBullet: {fileID: 5062095022116969136, guid: ab9c6a3a9e85a324b9913bcc05b8e69e, type: 3}
-  poolSize: 10
+  poolSize: 50
 --- !u!1 &1193482973
 GameObject:
   m_ObjectHideFlags: 0
@@ -5633,9 +5647,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1327066443}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73f76f7729897492db658f2037a315b4, type: 3}
+  m_Script: {fileID: 11500000, guid: 40a8907e11945f34ca40c178bb170ee2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Background: {fileID: 1327066443}
 --- !u!114 &1327066446
 MonoBehaviour:
   m_ObjectHideFlags: 0
