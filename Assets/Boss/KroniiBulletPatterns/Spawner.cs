@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class _KroniiBulletSpawner2 : MonoBehaviour
+public class KroniiBulletSpawner : MonoBehaviour
 {
     public KroniiPoolManager bulletPoolManager;
     public float bulletSpeed = 10.0f;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3076700086204720657}
   - component: {fileID: 5475347261732347234}
   - component: {fileID: 1326507366156393177}
-  - component: {fileID: 9164066501912809355}
+  - component: {fileID: 2971816048171921880}
   m_Layer: 10
   m_Name: KroniiBullet
   m_TagString: Bullet
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.8
---- !u!114 &9164066501912809355
+--- !u!114 &2971816048171921880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,8 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5062095022116969136}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d435d5758324739428983c48bc52365d, type: 3}
+  m_Script: {fileID: 11500000, guid: d50edb49ceb8443449179cef4823e75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  angularVelocity: 0
+  power: 10

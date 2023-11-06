@@ -1326,7 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074b2f991fe317847b49d15c251c3dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewPlayerBulletPrefab: {fileID: 8917712035340013267, guid: bf43eee11b83c704990ab008df0716c3, type: 3}
+  NewPlayerBulletPrefab: {fileID: 8917712035340013267, guid: 114c324912a6644458b6647d5a0cd36d, type: 3}
   poolSize: 30
 --- !u!4 &315755740
 Transform:
@@ -2241,8 +2241,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 989950478}
   - {fileID: 1177411058}
+  - {fileID: 989950478}
   - {fileID: 1476509203}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2300,7 +2300,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 483099616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 277e538c178fe0049ab186d467e9a09a, type: 3}
+  m_Script: {fileID: 11500000, guid: 05b900256912f7a4fa7c7a2fd64b4c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_slider_hp: {fileID: 87846218}
@@ -4324,7 +4324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPoolManager: {fileID: 1177411059}
-  bulletSpeed: 5
+  bulletSpeed: 20
 --- !u!1 &1029986859
 GameObject:
   m_ObjectHideFlags: 0
@@ -4906,11 +4906,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1177411057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 130cebb8cd85ef74ba3a172c44043f60, type: 3}
+  m_Script: {fileID: 11500000, guid: 96b194c080766d948b52207626250303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kroniiBullet: {fileID: 5062095022116969136, guid: 927a7f96bfdb66f42967947235b13915, type: 3}
-  poolSize: 100
+  kroniiBullet: {fileID: 5062095022116969136, guid: ab9c6a3a9e85a324b9913bcc05b8e69e, type: 3}
+  poolSize: 10
 --- !u!1 &1193482973
 GameObject:
   m_ObjectHideFlags: 0
@@ -5636,7 +5636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f76f7729897492db658f2037a315b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Background: {fileID: 1327066443}
 --- !u!114 &1327066446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7175,7 +7174,7 @@ Transform:
   m_GameObject: {fileID: 2042168366}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.25, y: -6.71, z: 0}
+  m_LocalPosition: {x: 0, y: -15, z: 0}
   m_LocalScale: {x: 0.76135, y: 0.76135, z: 0.76135}
   m_ConstrainProportionsScale: 0
   m_Children:
