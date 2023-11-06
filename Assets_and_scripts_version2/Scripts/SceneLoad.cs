@@ -21,10 +21,10 @@ public class SceneLoad : MonoBehaviour
     IEnumerator AsyncLoading()
     {
         float timer = 0f;
-        while (timer <= 7f) // 设置加载时间为10秒
+        while (timer <= 1f) // 设置加载时间为10秒
         {
             timer += Time.deltaTime;
-            float progress = Mathf.Clamp01(timer / 10f); // 计算加载进度（0到1之间）
+            float progress = Mathf.Clamp01(timer / 2f); // 计算加载进度（0到1之间）
 
             LoadingSlider.value = progress;
             yield return null;

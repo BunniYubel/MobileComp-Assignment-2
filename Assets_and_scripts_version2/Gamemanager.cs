@@ -8,7 +8,7 @@ public class Gamemanager : MonoBehaviour
 {
     public InputField nameInputField;
     public static Gamemanager Instance;
-    public LeaderboardManager leaderboard = new LeaderboardManager();
+    public LeaderboardManager leaderboard ;
     // Start is called before the first frame update
     public List<GameObject> objs;
     public  static List<int> score_list = new List<int> { 0, 0, 0, 0, 0};
