@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5361451111137545512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11e087998d4dbf342a916a72e7d3aee3, type: 3}
+  m_Script: {fileID: 11500000, guid: 130cebb8cd85ef74ba3a172c44043f60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   kroniiBullet: {fileID: 5062095022116969136, guid: 927a7f96bfdb66f42967947235b13915, type: 3}
@@ -124,12 +124,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b9a99bbb408e5ec4386d4ef01e4e9785, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9b0a197e379b339469732ab31541e67b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 6.6666665, y: 6.6666665}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -198,8 +198,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
-    newSize: {x: 10, y: 10}
+    oldSize: {x: 6.6666665, y: 6.6666665}
+    newSize: {x: 6.6666665, y: 6.6666665}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -216,10 +216,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7578176117850412503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 119f84589fb049841bd9465588b70a89, type: 3}
+  m_Script: {fileID: 11500000, guid: 277e538c178fe0049ab186d467e9a09a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  m_slider_hp: {fileID: 0}
+  speed: 0
+  life: 100
 --- !u!1 &8787668339768838703
 GameObject:
   m_ObjectHideFlags: 0
