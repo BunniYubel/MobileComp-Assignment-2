@@ -5878,7 +5878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e1dc0ff97f09b48be87871f1ed4c3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_life: 50
+  m_life: 100
   m_slider_hp: {fileID: 1764618242}
   m_explosionFX: {fileID: 100000, guid: fd0604056527c68458f893a5f9dc89e6, type: 3}
 --- !u!114 &2042168376

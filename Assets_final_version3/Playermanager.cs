@@ -7,7 +7,7 @@ public class Playermanager : MonoBehaviour
 {
   
 
-    public int m_life = 50;
+    public int m_life = 100;
     public Slider m_slider_hp;
     public GameObject m_explosionFX;
     // Start is called before the first frame update
