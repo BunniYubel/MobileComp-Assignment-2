@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5475347261732347234}
   - component: {fileID: 1326507366156393177}
   - component: {fileID: 9164066501912809355}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: KroniiBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
