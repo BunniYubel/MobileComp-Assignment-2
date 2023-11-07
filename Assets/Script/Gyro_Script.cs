@@ -6,32 +6,32 @@ using UnityEngine.UI;
 public class Gyro_Script : MonoBehaviour
 {
     public Button pauseMenu;
-    [SerializeField] Vector3 rot;
+    //[SerializeField] Vector3 rot;
     
     // Start is called before the first frame update
     
     private bool menuButtonPressed = false;
-    private float initialRotationY;
+    private float initialRotationZ;
 
     void Start()
     {
         // Initialize the gyroscope
         Input.gyro.enabled = true;
-        initialRotationY = Input.gyro.rotationRateUnbiased.y;
+        initialRotationZ = Input.gyro.rotationRateUnbiased.z;
     }
 
     void Update()
     {
         // Check if the Y-axis rotation has changed by 90 degrees
-        float currentRotationY = Input.gyro.rotationRateUnbiased.y;
+        float currentRotationZ = Input.gyro.rotationRateUnbiased.z;
         
         
         //for testing on unity 
         //float currentRotationY = rot.y;
         
-        float rotationChangeY = Mathf.Abs(currentRotationY - initialRotationY);
+        float rotationChangeZ = Mathf.Abs(currentRotationZ - initialRotationZ);
         // rotationChangeY >= 90.0f && !menuButtonPressed
-        if (rotationChangeY >= 90.0f)
+        if (rotationChangeZ >= 5.0f || rotationChangeZ <= -5.0f)
         {
             // Trigger the menu button action
             TriggerMenuButton();

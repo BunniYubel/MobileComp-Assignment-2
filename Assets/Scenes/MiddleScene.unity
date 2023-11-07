@@ -316,11 +316,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 998650462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66d5d5e20072b804d9dfad8ff10df832, type: 3}
+  m_Script: {fileID: 11500000, guid: cc70f349fac15fd43bc00a03db9938ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingSlider: {fileID: 1596816072}
-  LoadText: {fileID: 0}
+  LoadText: {fileID: 833976016}
   SceneName: SampleScene
 --- !u!1 &1028758771
 GameObject:
