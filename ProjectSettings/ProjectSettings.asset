@@ -916,11 +916,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: ca1371a0-ffee-480e-bc97-1e8b791c4443
+  cloudProjectId: 0ed9243f-aee2-45c4-b252-87de5968d689
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
   projectName: Please work
-  organizationId: bunniyubel
+  organizationId: liam_z
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
