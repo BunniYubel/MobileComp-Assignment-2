@@ -32,5 +32,6 @@ public class KroniiBulletSpawner1 : MonoBehaviour
             // Set the bullet as active.
             bullet.SetActive(true);
         }
+        
     }
 }

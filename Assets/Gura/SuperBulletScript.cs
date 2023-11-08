@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NewBulletScript : MonoBehaviour
+public class SuperBulletScript : MonoBehaviour
 {
-    private float bulletSpeed = 10f;  
+    private float bulletSpeed = 15f;
     private Rigidbody2D rb;
-    public GameObject m_explosionFX;  
-    public TextMeshProUGUI scoreText; 
+    public GameObject m_explosionFX;
+    public TextMeshProUGUI scoreText;
 
     void Awake()
     {
@@ -18,7 +18,7 @@ public class NewBulletScript : MonoBehaviour
 
     void Update()
     {
-        rb.velocity = transform.up * bulletSpeed;  
+        rb.velocity = transform.up * bulletSpeed;
     }
 
     public void SetBulletSpeed(float speed)
@@ -29,8 +29,9 @@ public class NewBulletScript : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        gameObject.SetActive(false); 
+        gameObject.SetActive(false);
     }
+
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -41,8 +42,8 @@ public class NewBulletScript : MonoBehaviour
             {
                 Handheld.Vibrate(); // Υπ¶―
                 Gamemanager.Instance.AddScore(1);
-                kroni.life -= 1;
-                kroni.m_slider_hp.value -= 1;
+                kroni.life -= 5;
+                kroni.m_slider_hp.value -= 5;
                 if (kroni.life <= 0)
                 {
                     Instantiate(m_explosionFX, transform.position, Quaternion.identity);
@@ -59,6 +60,8 @@ public class NewBulletScript : MonoBehaviour
                 }
             }
 
+            
+
             // Deactivate the bullet when it hits an enemy.
             gameObject.SetActive(false);
 
@@ -71,8 +74,11 @@ public class NewBulletScript : MonoBehaviour
             {
                 scoreText.text = "Score: " + currentScore;
             }
+
+
         }
-        
+
+       
     }
 
 }

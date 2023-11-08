@@ -546,6 +546,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &164361932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 164361933}
+  - component: {fileID: 164361934}
+  m_Layer: 6
+  m_Name: SuperBulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &164361933
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164361932}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2042168369}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &164361934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164361932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75c17f2f6a118184d91bfee377523142, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SuperBullet: {fileID: 9173273165100925950, guid: 4b2afff0d13ec3047bf6d5f0ee77bbe6, type: 3}
+  cooldownTime: 2
 --- !u!1 &180646414
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,7 +791,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1234457197}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Load_Scene, Assembly-CSharp
         m_MethodName: GoToScene
         m_Mode: 5
@@ -1304,7 +1350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 074b2f991fe317847b49d15c251c3dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewPlayerBulletPrefab: {fileID: 8917712035340013267, guid: bf43eee11b83c704990ab008df0716c3, type: 3}
+  NewPlayerBulletPrefab: {fileID: 8917712035340013267, guid: daf7ac63d01791149a45228e52cce93d, type: 3}
   poolSize: 30
 --- !u!4 &315755740
 Transform:
@@ -1655,9 +1701,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 481636e19da5a8a47be1a6f0abfe692f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 8917712035340013267, guid: daf7ac63d01791149a45228e52cce93d, type: 3}
   bulletPool: {fileID: 315755739}
-  microphoneinput: {fileID: 0}
+  microphoneinput: {fileID: 1664758672}
   fireRate: 0.7
   bulletSpeed: 1
 --- !u!1 &443642718
@@ -1945,12 +1991,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6515702ef321d604a8d67abb8c47c0f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 830cafb519e7aa34782c578f8a2aff64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10, y: 10}
+  m_Size: {x: 6.6666665, y: 6.6666665}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2038,7 +2084,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 6.6666665, y: 6.6666665}
-    newSize: {x: 10, y: 10}
+    newSize: {x: 6.6666665, y: 6.6666665}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -2055,7 +2101,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 483099616}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 277e538c178fe0049ab186d467e9a09a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f25942a0ca1c72469768c35eba1a706, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_slider_hp: {fileID: 87846218}
@@ -2593,7 +2639,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 19.60622
+  orthographic size: 20
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2618,7 +2664,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -44.2}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2932,8 +2978,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 36.38882, y: 0.0000053644}
-  m_SizeDelta: {x: 18.14472, y: 16.167}
+  m_AnchoredPosition: {x: 32.5, y: 1.9459}
+  m_SizeDelta: {x: 10.36709, y: 12.27567}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &682519332
 MonoBehaviour:
@@ -3610,11 +3656,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 989950477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0381daa9989b0a4091de9992cccb805, type: 3}
+  m_Script: {fileID: 11500000, guid: 8178842967b8f87419b728415cd5481b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPoolManager: {fileID: 1177411059}
-  bulletSpeed: 5
+  bulletSpeed: 10
 --- !u!1 &1029986859
 GameObject:
   m_ObjectHideFlags: 0
@@ -4244,11 +4290,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1177411057}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 130cebb8cd85ef74ba3a172c44043f60, type: 3}
+  m_Script: {fileID: 11500000, guid: bdeb5798185a74644a7d64779fecad5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kroniiBullet: {fileID: 5062095022116969136, guid: 927a7f96bfdb66f42967947235b13915, type: 3}
-  poolSize: 100
+  kroniiBullet: {fileID: 5062095022116969136, guid: f9d30a2c8c25f32489342ff18a24ff64, type: 3}
+  poolSize: 10
 --- !u!1 &1193482973
 GameObject:
   m_ObjectHideFlags: 0
@@ -4694,7 +4740,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1234457189}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e49b2ff055e094a08883d234f50a85cf, type: 3}
+  m_Script: {fileID: 11500000, guid: e215eb39da76e954ba6f8c15e1a8bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1286118942
@@ -5187,8 +5233,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1489171852}
-        m_TargetAssemblyTypeName: Mainmenu, Assembly-CSharp
+      - m_Target: {fileID: 1489171856}
+        m_TargetAssemblyTypeName: Load_Scene, Assembly-CSharp
         m_MethodName: GoToScene
         m_Mode: 5
         m_Arguments:
@@ -5430,7 +5476,7 @@ GameObject:
   - component: {fileID: 1489171855}
   - component: {fileID: 1489171854}
   - component: {fileID: 1489171853}
-  - component: {fileID: 1489171852}
+  - component: {fileID: 1489171856}
   m_Layer: 0
   m_Name: Pause menu canvas
   m_TagString: Untagged
@@ -5458,18 +5504,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1489171852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1489171850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e49b2ff055e094a08883d234f50a85cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1489171853
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5533,6 +5567,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 15
   m_TargetDisplay: 0
+--- !u!114 &1489171856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489171850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e215eb39da76e954ba6f8c15e1a8bd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1495415114
 GameObject:
   m_ObjectHideFlags: 0
@@ -6121,11 +6167,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1722538587}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1cc2dea55077490c8e399275ca90d9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 2d756642ce88c9d47859b535fb1c1a82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1722538590}
-  rot: {x: 0, y: 0, z: 0}
 --- !u!114 &1722538590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7148,6 +7193,7 @@ Transform:
   - {fileID: 428261604}
   - {fileID: 315755740}
   - {fileID: 1029986860}
+  - {fileID: 164361933}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2042168370

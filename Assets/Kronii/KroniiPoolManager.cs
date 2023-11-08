@@ -8,6 +8,7 @@ public class KroniiPoolManager : MonoBehaviour
     public int poolSize = 10;
 
     private List<GameObject> bulletPool;
+    //private List<GameObject> bulletPool;
 
     // Start is called before the first frame update
     void Start()
@@ -34,11 +35,14 @@ public class KroniiPoolManager : MonoBehaviour
             {
                 return bullet;
             }
+            //ReturnKroniiBullet(bullet);
         }
         return null;
+        
     }
     public void ReturnKroniiBullet(GameObject kroniiBullet)
     {
+        
         kroniiBullet.SetActive(false);
     }
 }

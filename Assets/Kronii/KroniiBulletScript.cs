@@ -20,6 +20,7 @@ public class KroniiBulletScript : MonoBehaviour
     {
         // Move the bullet in the set direction with a constant speed.
         rb.velocity = direction.normalized * speed;
+      
     }
 
     // Set the direction and speed for the bullet.
@@ -36,6 +37,11 @@ public class KroniiBulletScript : MonoBehaviour
         {
             gameObject.SetActive(false); // Deactivate the bullet.
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        gameObject.SetActive(false);
     }
 
 }

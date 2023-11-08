@@ -320,7 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoadingSlider: {fileID: 1596816072}
-  LoadText: {fileID: 0}
+  LoadText: {fileID: 833976016}
   SceneName: SampleScene
 --- !u!1 &1028758771
 GameObject:
