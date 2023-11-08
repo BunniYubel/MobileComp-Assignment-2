@@ -10,7 +10,7 @@ public class Gyro_Script : MonoBehaviour
     
     // Start is called before the first frame update
     
-    private bool menuButtonPressed = false;
+    //private bool menuButtonPressed = false;
     private float initialRotationZ;
 
     void Start()

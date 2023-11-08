@@ -6,21 +6,37 @@ using UnityEngine;
 
 public class GyroPlayerMovement : MonoBehaviour
 {
-    Rigidbody2D playerRB;
-    float dirX;
-    float dirY;
-    float dirZ;
-    float moveSpeed = 25f;
+    private Rigidbody2D playerRB;
+    //private float initialRotationX;
+    //private float initialRotationY;
+    //private float initialRotationZ;
+
+
+    private float dirX;
+    private float dirY;
+    private float dirZ;
+    private float moveSpeed = 25f;
     // Start is called before the first frame update
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
+        //initialRotationX = Input.acceleration.x;
+        //initialRotationY = Input.acceleration.y;
+        //initialRotationZ = Input.acceleration.z;
     }
 
 
     // Update is called once per frame
     void Update()
     {
+        //float currentAccelerationZ = Input.acceleration.z;
+        //float accelerationChagneZ = Mathf.Abs(currentAccelerationZ - initialRotationZ);
+        //float currentAccelerationX = Input.acceleration.x;
+        //float accelerationChagneX = Mathf.Abs(currentAccelerationX - initialRotationX);
+        //float currentAccelerationY = Input.acceleration.y;
+        //float accelerationChagneY = Mathf.Abs(currentAccelerationY - initialRotationY);
+        
+        
         dirX = Input.acceleration.x * moveSpeed;
         dirY = Input.acceleration.y * moveSpeed;
         dirZ = Input.acceleration.z * moveSpeed;
