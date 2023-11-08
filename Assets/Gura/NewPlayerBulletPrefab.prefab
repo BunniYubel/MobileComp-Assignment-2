@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2725236980412523020}
   - component: {fileID: 8285450086123747692}
   - component: {fileID: 2971708060909291733}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: NewPlayerBulletPrefab
   m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8917712035340013267}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1829906438197394332
 SpriteRenderer:
@@ -143,7 +143,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.09}
@@ -161,7 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5afdf58f0bcd76749baf0a49c414c7b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  power: 1
   m_explosionFX: {fileID: 100000, guid: fd0604056527c68458f893a5f9dc89e6, type: 3}
   scoreText: {fileID: 0}

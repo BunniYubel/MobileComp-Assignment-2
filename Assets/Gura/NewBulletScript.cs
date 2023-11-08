@@ -5,39 +5,45 @@ using TMPro;
 
 public class NewBulletScript : MonoBehaviour
 {
-    public float speed;
-    public int power = 1;
+    private float bulletSpeed = 10f;  
     private Rigidbody2D rb;
-    public GameObject m_explosionFX;
+    public GameObject m_explosionFX;  
+    public TextMeshProUGUI scoreText; 
 
-    // Reference to the TextMeshProUGUI Text component.
-    public TextMeshProUGUI scoreText;
-
-   
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void OnBecameInvisible()
+
+    void Update()
     {
-        // Deactivate the bullet when it goes out of the camera's view.
-        gameObject.SetActive(false);
+        rb.velocity = transform.up * bulletSpeed;  
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public void SetBulletSpeed(float speed)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
+        bulletSpeed = speed;
+        //Debug.Log("New bullet speed set: " + bulletSpeed);
+    }
 
-            KroniiMovement kroni = collision.gameObject.GetComponent<KroniiMovement>();
+    void OnBecameInvisible()
+    {
+        gameObject.SetActive(false); 
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            KroniiMovement kroni = other.GetComponent<KroniiMovement>();
             if (kroni != null)
             {
-                Handheld.Vibrate();//震动
+                Handheld.Vibrate(); // 震动
                 Gamemanager.Instance.AddScore(1);
-                kroni.life -= power;
-                kroni.m_slider_hp.value -= power;
-                if(kroni.life<=0)
+                kroni.life -= 1;
+                kroni.m_slider_hp.value -= 1;
+                if (kroni.life <= 0)
                 {
                     Instantiate(m_explosionFX, transform.position, Quaternion.identity);
                     for (int i = 0; i < 5; i++)
@@ -49,13 +55,9 @@ public class NewBulletScript : MonoBehaviour
                         }
                     }
                     Gamemanager.Instance.objs[2].SetActive(true);
-     
-                    Destroy(this.gameObject);
+                    Destroy(other.gameObject); // 销毁敌人而不是子弹
                 }
             }
-
-            // Handle the collision with an enemy or boss here.
-            // For example, you can play an impact effect or deal damage to the enemy.
 
             // Deactivate the bullet when it hits an enemy.
             gameObject.SetActive(false);
@@ -70,5 +72,6 @@ public class NewBulletScript : MonoBehaviour
                 scoreText.text = "Score: " + currentScore;
             }
         }
+        
     }
 }

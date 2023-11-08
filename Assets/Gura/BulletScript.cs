@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public float speed = 10f; // Adjust the bullet's speed as needed.
+    public float speed = 1f; // Adjust the bullet's speed as needed.
     public Transform PlayerBulletSpawner;
     public GuraPoolManager bulletPool;
 
@@ -14,6 +14,7 @@ public class BulletScript : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.isKinematic = true;
         startPosition = transform.position;
     }
 

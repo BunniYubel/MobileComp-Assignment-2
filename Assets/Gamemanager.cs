@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -42,25 +43,74 @@ public class Gamemanager : MonoBehaviour
         m_text_max.text = m_max.ToString();
     }
 
+    public void UpdateMaxScore()
+    {
+        m_max = leaderboard.highestScore;
+        m_text_max.text = m_max.ToString();
+    }
+
+
+
     // Update is called once per frame
     void Update()
     {
         
     }
+
     public void UpdateScore()
     {
-        //score_list.Sort();
-        //score_list.Reverse();
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    texts[i].text = score_list[i].ToString();
-        //}
         leaderboard.playerName = nameInputField.text;
         leaderboard.playerScore = m_score;
-        leaderboard.OnRegisterButtonClicked();
-        //leaderboard.UpdateScore(m_score);
-   
+        leaderboard.OnRegisterButtonClicked(); // ÕâÀï¼ÙÉè×¢²áºÍµÇÂ¼ÊÇÒ»²½²Ù×÷
+
+        // ÔÚÕâÀïµ÷ÓÃÐÂµÄ·½·¨À´»ñÈ¡·þÎñÆ÷ÉÏµÄ×î¸ß·Ö
+        StartCoroutine(GetMaxScoreFromServer(leaderboard.playerName));
     }
+
+    // Ð­³Ì£¬´Ó·þÎñÆ÷»ñÈ¡×î¸ß·Ö
+    IEnumerator GetMaxScoreFromServer(string username)
+    {
+        string loginUrl = "https://octopus-app-6yuia.ondigitalocean.app/user/login";
+        string jsonPayload = "{\"username\": \"" + username + "\"}";
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
+
+        UnityWebRequest loginRequest = new UnityWebRequest(loginUrl, "POST");
+        loginRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
+        loginRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        loginRequest.SetRequestHeader("Content-Type", "application/json");
+
+        yield return loginRequest.SendWebRequest();
+
+        if (loginRequest.isNetworkError || loginRequest.isHttpError)
+        {
+            Debug.LogError("Error: " + loginRequest.error);
+            // ¿ÉÒÔÔÚÕâÀï´¦Àí´íÎó£¬ÀýÈçÌáÊ¾ÓÃ»§
+        }
+        else
+        {
+            Debug.Log("User logged in successfully");
+            LoginResponseData loginData = JsonUtility.FromJson<LoginResponseData>(loginRequest.downloadHandler.text);
+            int serverMaxScore = loginData.score;
+
+            // ±È½Ï±¾µØ×î¸ß·ÖºÍ·þÎñÆ÷×î¸ß·Ö
+            m_max = Mathf.Max(m_max, serverMaxScore);
+            m_text_max.text = m_max.ToString();
+
+            // Èç¹û·þÎñÆ÷×î¸ß·Ö¸ßÓÚ±¾µØ×î¸ß·Ö£¬¿ÉÒÔÑ¡ÔñÉÏ´«ÐÂµÄ×î¸ß·Ö
+            if (serverMaxScore > m_score)
+            {
+                leaderboard.UpdateScore(serverMaxScore);
+            }
+        }
+    }
+
+    [System.Serializable]
+    public class LoginResponseData
+    {
+        public string message;
+        public int score;
+    }
+
     public void AddScore(int point)
     {
         m_score+=point;
@@ -79,12 +129,12 @@ public class Gamemanager : MonoBehaviour
     {
         objs[i].SetActive(false);
     }
-    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½Ï·
+ 
     public void ExitGame()
     {
         Application.Quit();
     }
-    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½Ê¼ï¿½ï¿½Ï·
+  
     public void RestartGame()
     {
       SceneManager.LoadScene(0);
