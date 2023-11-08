@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -55,63 +56,61 @@ public class Gamemanager : MonoBehaviour
     {
         
     }
-    
+
     public void UpdateScore()
-{
-    leaderboard.playerName = nameInputField.text;
-    leaderboard.playerScore = m_score;
-    leaderboard.OnRegisterButtonClicked(); // è¿™é‡Œå‡è®¾æ³¨å†Œå’Œç™»å½•æ˜¯ä¸€æ­¥æ“ä½œ
-
-    // åœ¨è¿™é‡Œè°ƒç”¨æ–°çš„æ–¹æ³•æ¥è·å–æœåŠ¡å™¨ä¸Šçš„æœ€é«˜åˆ†
-    StartCoroutine(GetMaxScoreFromServer(leaderboard.playerName));
-}
-
-// åç¨‹ï¼Œä»æœåŠ¡å™¨è·å–æœ€é«˜åˆ†
-IEnumerator GetMaxScoreFromServer(string username)
-{
-    string loginUrl = "https://octopus-app-6yuia.ondigitalocean.app/user/login";
-    string jsonPayload = "{\"username\": \"" + username + "\"}";
-    byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
-
-    UnityWebRequest loginRequest = new UnityWebRequest(loginUrl, "POST");
-    loginRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
-    loginRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
-    loginRequest.SetRequestHeader("Content-Type", "application/json");
-
-    yield return loginRequest.SendWebRequest();
-
-    if (loginRequest.isNetworkError || loginRequest.isHttpError)
     {
-        Debug.LogError("Error: " + loginRequest.error);
-        // å¯ä»¥åœ¨è¿™é‡Œå¤„ç†é”™è¯¯ï¼Œä¾‹å¦‚æç¤ºç”¨æˆ·
+        leaderboard.playerName = nameInputField.text;
+        leaderboard.playerScore = m_score;
+        leaderboard.OnRegisterButtonClicked(); // ÕâÀï¼ÙÉè×¢²áºÍµÇÂ¼ÊÇÒ»²½²Ù×÷
+
+        // ÔÚÕâÀïµ÷ÓÃĞÂµÄ·½·¨À´»ñÈ¡·şÎñÆ÷ÉÏµÄ×î¸ß·Ö
+        StartCoroutine(GetMaxScoreFromServer(leaderboard.playerName));
     }
-    else
+
+    // Ğ­³Ì£¬´Ó·şÎñÆ÷»ñÈ¡×î¸ß·Ö
+    IEnumerator GetMaxScoreFromServer(string username)
     {
-        Debug.Log("User logged in successfully");
-        LoginResponseData loginData = JsonUtility.FromJson<LoginResponseData>(loginRequest.downloadHandler.text);
-        int serverMaxScore = loginData.score;
+        string loginUrl = "https://octopus-app-6yuia.ondigitalocean.app/user/login";
+        string jsonPayload = "{\"username\": \"" + username + "\"}";
+        byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
 
-        // æ¯”è¾ƒæœ¬åœ°æœ€é«˜åˆ†å’ŒæœåŠ¡å™¨æœ€é«˜åˆ†
-        m_max = Mathf.Max(m_max, serverMaxScore);
-        m_text_max.text = m_max.ToString();
+        UnityWebRequest loginRequest = new UnityWebRequest(loginUrl, "POST");
+        loginRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
+        loginRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+        loginRequest.SetRequestHeader("Content-Type", "application/json");
 
-        // å¦‚æœæœåŠ¡å™¨æœ€é«˜åˆ†é«˜äºæœ¬åœ°æœ€é«˜åˆ†ï¼Œå¯ä»¥é€‰æ‹©ä¸Šä¼ æ–°çš„æœ€é«˜åˆ†
-        if (serverMaxScore > m_score)
+        yield return loginRequest.SendWebRequest();
+
+        if (loginRequest.isNetworkError || loginRequest.isHttpError)
         {
-            leaderboard.UpdateScore(serverMaxScore);
+            Debug.LogError("Error: " + loginRequest.error);
+            // ¿ÉÒÔÔÚÕâÀï´¦Àí´íÎó£¬ÀıÈçÌáÊ¾ÓÃ»§
+        }
+        else
+        {
+            Debug.Log("User logged in successfully");
+            LoginResponseData loginData = JsonUtility.FromJson<LoginResponseData>(loginRequest.downloadHandler.text);
+            int serverMaxScore = loginData.score;
+
+            // ±È½Ï±¾µØ×î¸ß·ÖºÍ·şÎñÆ÷×î¸ß·Ö
+            m_max = Mathf.Max(m_max, serverMaxScore);
+            m_text_max.text = m_max.ToString();
+
+            // Èç¹û·şÎñÆ÷×î¸ß·Ö¸ßÓÚ±¾µØ×î¸ß·Ö£¬¿ÉÒÔÑ¡ÔñÉÏ´«ĞÂµÄ×î¸ß·Ö
+            if (serverMaxScore > m_score)
+            {
+                leaderboard.UpdateScore(serverMaxScore);
+            }
         }
     }
-}
 
-[System.Serializable]
-public class LoginResponseData
-{
-    public string message;
-    public int score;
-}
+    [System.Serializable]
+    public class LoginResponseData
+    {
+        public string message;
+        public int score;
+    }
 
-
-    
     public void AddScore(int point)
     {
         m_score+=point;
