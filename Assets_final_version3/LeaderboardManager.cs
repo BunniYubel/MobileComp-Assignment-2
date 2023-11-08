@@ -4,11 +4,11 @@ using UnityEngine.Networking;
 using System.Collections;
 public class LeaderboardManager : MonoBehaviour
 {
-    public Text[] usernameTexts; // ÓÃÓÚÏÔÊ¾ÓÃ»§ÃûµÄText×é¼şÊı×é
-    public Text[] scoreTexts; // ÓÃÓÚÏÔÊ¾·ÖÊıµÄText×é¼şÊı×é
+    public Text[] usernameTexts; // ç”¨äºæ˜¾ç¤ºç”¨æˆ·åçš„Textç»„ä»¶æ•°ç»„
+    public Text[] scoreTexts; // ç”¨äºæ˜¾ç¤ºåˆ†æ•°çš„Textç»„ä»¶æ•°ç»„
 
-    public string playerName; // Íæ¼ÒµÄÓÃ»§Ãû
-    public int playerScore; // Íæ¼ÒµÄ·ÖÊı
+    public string playerName; // ç©å®¶çš„ç”¨æˆ·å
+    public int playerScore; // ç©å®¶çš„åˆ†æ•°
 
     public int highestScore { get; private set; }
     public IEnumerator BeginGetLeaderboardData()
@@ -55,7 +55,7 @@ public class LeaderboardManager : MonoBehaviour
         else
         {
             //Debug.Log("User registered successfully");
-            // ×¢²á³É¹¦ºó£¬¿ÉÒÔÔÚÕâÀï´¦ÀíÆäËûÂß¼­£¬ÀıÈç¸üĞÂ·ÖÊıµÈ
+            // æ³¨å†ŒæˆåŠŸåï¼Œå¯ä»¥åœ¨è¿™é‡Œå¤„ç†å…¶ä»–é€»è¾‘ï¼Œä¾‹å¦‚æ›´æ–°åˆ†æ•°ç­‰
             UpdateScore(playerScore);
         }
     }
@@ -69,7 +69,7 @@ public class LeaderboardManager : MonoBehaviour
     IEnumerator UploadScoreToServer(string username, int score)
     {
         string url = "https://octopus-app-6yuia.ondigitalocean.app/user/updateScore";
-        // ¹¹½¨°üº¬ÓÃ»§ÃûºÍ·ÖÊıµÄJSONÊı¾İ
+        // æ„å»ºåŒ…å«ç”¨æˆ·åå’Œåˆ†æ•°çš„JSONæ•°æ®
         string jsonPayload = "{\"username\": \"" + username + "\", \"score\": " + score + "}";
         byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
 
@@ -87,7 +87,7 @@ public class LeaderboardManager : MonoBehaviour
         else
         {
             //Debug.Log("Score uploaded successfully");
-            // ÉÏ´«³É¹¦ºó£¬Ë¢ĞÂÅÅĞĞ°ñÊı¾İ
+            // ä¸Šä¼ æˆåŠŸåï¼Œåˆ·æ–°æ’è¡Œæ¦œæ•°æ®
             StartCoroutine(GetLeaderboardData());
         }
     }
@@ -120,19 +120,19 @@ public class LeaderboardManager : MonoBehaviour
         {
             if (i < usernameTexts.Length && i < scoreTexts.Length)
             {
-                usernameTexts[i].text = $"{i + 1}. {topUsers[i].Username}";
+                usernameTexts[i].text = $"{topUsers[i].Username}";
                 scoreTexts[i].text = topUsers[i].Score.ToString();
-                //Debug.Log($"Rank {i + 1}: {topUsers[i].Username} - Score: {topUsers[i].Score}"); // ´òÓ¡ÅÅÃûºÍ·ÖÊı
+                //Debug.Log($"Rank {i + 1}: {topUsers[i].Username} - Score: {topUsers[i].Score}"); // æ‰“å°æ’åå’Œåˆ†æ•°
 
                 if (i == 0)
                 {
                     highestScore = topUsers[i].Score;
-                    //Debug.Log($"New highest score is {highestScore} by user {topUsers[i].Username}"); // ´òÓ¡×î¸ß·ÖÊıºÍÓÃ»§
+                    //Debug.Log($"New highest score is {highestScore} by user {topUsers[i].Username}"); // æ‰“å°æœ€é«˜åˆ†æ•°å’Œç”¨æˆ·
                 }
             }
             else
             {
-                //Debug.LogWarning("Not enough UI Text elements to display all users."); // Èç¹ûUIÔªËØ²»¹»£¬´òÓ¡¾¯¸æ
+                //Debug.LogWarning("Not enough UI Text elements to display all users."); // å¦‚æœUIå…ƒç´ ä¸å¤Ÿï¼Œæ‰“å°è­¦å‘Š
                 break;
             }
         }
