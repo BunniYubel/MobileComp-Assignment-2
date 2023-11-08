@@ -206,8 +206,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 977168365}
-        m_TargetAssemblyTypeName: Load_Scene, Assembly-CSharp
+      - m_Target: {fileID: 977168363}
+        m_TargetAssemblyTypeName: Mainmenu, Assembly-CSharp
         m_MethodName: GoToScene
         m_Mode: 5
         m_Arguments:
@@ -345,8 +345,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 977168359}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &216153249
@@ -596,8 +595,8 @@ GameObject:
   - component: {fileID: 977168362}
   - component: {fileID: 977168361}
   - component: {fileID: 977168360}
+  - component: {fileID: 977168363}
   - component: {fileID: 977168364}
-  - component: {fileID: 977168365}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -618,7 +617,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 701937057}
-  m_Father: {fileID: 197425548}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -688,6 +687,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &977168363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977168358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e49b2ff055e094a08883d234f50a85cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &977168364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,18 +709,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a75f6fbddd62c4c77b2aab23723f9afc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &977168365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977168358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e215eb39da76e954ba6f8c15e1a8bd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1036646216
@@ -832,8 +831,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 977168365}
-        m_TargetAssemblyTypeName: Load_Scene, Assembly-CSharp
+      - m_Target: {fileID: 977168363}
+        m_TargetAssemblyTypeName: Mainmenu, Assembly-CSharp
         m_MethodName: GoToScene
         m_Mode: 5
         m_Arguments:
@@ -1074,7 +1073,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 977168363}
         m_TargetAssemblyTypeName: Mainmenu, Assembly-CSharp
         m_MethodName: GoToScene
         m_Mode: 5
@@ -1128,5 +1127,6 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 977168359}
   - {fileID: 197425548}
   - {fileID: 1495042095}
