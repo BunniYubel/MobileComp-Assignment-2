@@ -55,21 +55,63 @@ public class Gamemanager : MonoBehaviour
     {
         
     }
+    
     public void UpdateScore()
+{
+    leaderboard.playerName = nameInputField.text;
+    leaderboard.playerScore = m_score;
+    leaderboard.OnRegisterButtonClicked(); // 这里假设注册和登录是一步操作
+
+    // 在这里调用新的方法来获取服务器上的最高分
+    StartCoroutine(GetMaxScoreFromServer(leaderboard.playerName));
+}
+
+// 协程，从服务器获取最高分
+IEnumerator GetMaxScoreFromServer(string username)
+{
+    string loginUrl = "https://octopus-app-6yuia.ondigitalocean.app/user/login";
+    string jsonPayload = "{\"username\": \"" + username + "\"}";
+    byte[] bodyRaw = System.Text.Encoding.UTF8.GetBytes(jsonPayload);
+
+    UnityWebRequest loginRequest = new UnityWebRequest(loginUrl, "POST");
+    loginRequest.uploadHandler = (UploadHandler)new UploadHandlerRaw(bodyRaw);
+    loginRequest.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
+    loginRequest.SetRequestHeader("Content-Type", "application/json");
+
+    yield return loginRequest.SendWebRequest();
+
+    if (loginRequest.isNetworkError || loginRequest.isHttpError)
     {
-        //score_list.Sort();
-        //score_list.Reverse();
-        //for (int i = 0; i < 5; i++)
-        //{
-        //    texts[i].text = score_list[i].ToString();
-        //}
-        UpdateMaxScore();
-        leaderboard.playerName = nameInputField.text;
-        leaderboard.playerScore = m_score;
-        leaderboard.OnRegisterButtonClicked();
-        //leaderboard.UpdateScore(m_score);
-   
+        Debug.LogError("Error: " + loginRequest.error);
+        // 可以在这里处理错误，例如提示用户
     }
+    else
+    {
+        Debug.Log("User logged in successfully");
+        LoginResponseData loginData = JsonUtility.FromJson<LoginResponseData>(loginRequest.downloadHandler.text);
+        int serverMaxScore = loginData.score;
+
+        // 比较本地最高分和服务器最高分
+        m_max = Mathf.Max(m_max, serverMaxScore);
+        m_text_max.text = m_max.ToString();
+
+        // 如果服务器最高分高于本地最高分，可以选择上传新的最高分
+        if (serverMaxScore > m_score)
+        {
+            leaderboard.UpdateScore(serverMaxScore);
+        }
+    }
+}
+
+[System.Serializable]
+public class LoginResponseData
+{
+    public string message;
+    public int score;
+}
+
+
+    
     public void AddScore(int point)
     {
         m_score+=point;
