@@ -28,3 +28,8 @@ Basic features:
 
 UPDATES:
 5/10: Made the scrolling background, installed the DanmakU engine for bullet hell patterns
+
+Image references:
+Gura chibi: https://wallpapers-clan.com/sticker-png/chibi-gawr-gura/
+Kronii chibi:https://twitter.com/ourokronii/status/1494518560118358018
+Background and bullet assets are hand drawn
